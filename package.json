@@ -10,7 +10,9 @@
     "start": "node index.js"
   },
   "dependencies": {
+    "4": "0.0.0",
     "body-parser": "^1.16.1",
+    "bootstrap": "^4.3.1",
     "ejs": "2.4.1",
     "express": "^4.16.4",
     "express-ejs-layouts": "^2.2.0",

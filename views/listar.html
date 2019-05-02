@@ -1,12 +1,37 @@
 <html>
-<head>
-<title>Login</title>
-</head>
-<body>
-<h1>Logar!</h1>
-<% usuarios.forEach( (usuario) => { %>
-<p><a href="editar/<%= usuario.id %>"> <%=usuario.nome %></a> |
-<a href="deletar/<%= usuario.id %>"> Deletar</a></p><% }); %>
-<a href="/cadastrar"> Cadastrar Novo Usuario </a>
-</body>
+    <head>
+        <title>Listar</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+	    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    </head>
+    <body>
+        <header class="bg-dark"><!-- Abre cabeçalho -->
+            <div class="container"><!-- Abre container -->
+                <div class="row"><!-- Abre linha -->
+                <div class="col-12"><!-- Abre coluna -->
+                    <nav class="navbar pt-4">
+                    <span class="col-6"><a class="text-light" href="/">Home</a></span>
+                    <ul class="col-6 nav justify-content-end">
+                        <li class="list-item"><a class="nav-link text-light" href="/login">Login</a></li>
+                        <li class="list-item"><a class="nav-link text-success" href="/listar">Listar</a></li>
+                        <li class="list-item"><a class="nav-link text-light" href="/cadastrar">Cadastrar</a></li>
+                        <li class="list-item"><a class="nav-link text-light" href="/editar">Atualizar</a></li>
+                        <li class="list-item"><a class="nav-link text-light" href="/deletar">Deletar</a></li>
+                    </ul>
+                    </nav>
+                </div><!-- Fecha coluna -->
+                </div> <!-- Fecha linha -->
+            </div>-<!-- Fecha container -->
+            </header><!-- Fecha cabeçalho -->
+        <div class="container">
+                <h1 class="mt-5 mb-4">Lista de usuários cadastrados</h1>
+                <% usuarios.forEach( (usuario) => { %>
+                    <p><%=usuario.id %> | <a href="editar/<%= usuario.id %>"> <%=usuario.nome %></a> |
+                    <a href="deletar/<%= usuario.id %>"> Deletar</a></p>
+                    <% }); %>
+                <div class="mt-4">
+                    <a href="/cadastrar">Cadastrar Novo Usuario</a>
+                </div>                
+        </div>                      
+    </body>
 </html>

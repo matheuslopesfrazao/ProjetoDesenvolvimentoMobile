@@ -24,6 +24,8 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.engine('html', require('ejs').renderFile);
 
+app.use(express.static(__dirname + '/public')) /* Faz com que o css funcione*/ 
+
 
 /* Abre rota Home */
 app.get('/', (req, res) => {
@@ -35,21 +37,40 @@ app.get('/', (req, res) => {
 /* Abre rota Listar */
 app.get('/listar', (req, resposta) => { 
 connection.query('SELECT * FROM `usuario`', function(err, rows, fields) {
-if (err){
-console.log ('error', err.message, err.stack)
-}
-else{
-resposta.render(__dirname+'/views/listar.html', {usuarios:rows});
-}
-});
+    if (err){
+      console.log ('error', err.message, err.stack)
+    }
+    else{
+      resposta.render(__dirname+'/views/listar.html', {usuarios:rows});
+    }
+  });
 });
 /* fecha rota Listar */
 
 
 /* Abre rota Cadastrar */
 app.get('/cadastrar', (req, resposta) => {
-resposta.render(__dirname+'/views/cadastrar.html', {msg:"Cadastro de novos usuarios"});
+  resposta.render(__dirname+'/views/cadastrar.html', {msg:"Cadastro de novos usuarios"});
 });
+
+app.post('/cadastrar',function(request,res){
+
+  var nome=request.body.nome;
+  var endereco=request.body.endereco;
+  var cpf=request.body.cpf;
+  var senha=sha1(request.body.senha);
+
+  const usuario = {'nome': nome, 'endereco': endereco, 'cpf': cpf , 'senha': senha };
+  
+  connection.query('INSERT INTO usuario SET ?', usuario, (err, resp) => {
+    if (err){
+      console.log ('error', err.message, err.stack)
+    }
+    else
+      console.log('ID do ultimo inserido:', resp.insertId);
+    });
+  res.render(__dirname+'/views/cadastrar.html', {msg: nome+" Cadastrado com Sucesso"});
+  });
 /* fecha rota Cadastrar */
 
 
@@ -69,6 +90,48 @@ app.post('/login',function(request,res){
 });
 /* fecha rota Login */
 
+/* Abre rota Atualizar*/ 
+app.get('/editar/:id', (req, resposta) => {
+  var id = req.params.id;
+  connection.query('SELECT * FROM `usuario`Where id = ?',[id], function(err, rows, fields) {
+    if (err){
+      console.log ('error', err.message, err.stack)
+    }
+    else{
+      console.log(rows[0]);
+      resposta.render(__dirname+'/views/editar.html', {usuario:rows[0]});
+    }
+  });
+});
+
+app.post('/editar',function(request,res){
+  var nome=request.body.nome;
+  var endereco=request.body.endereco;
+  var cpf=request.body.cpf;
+  var id = request.body.id;
+  connection.query(
+  'UPDATE usuario SET nome = ?, endereco = ?, cpf = ? Where id = ?', [nome, endereco, cpf, id],
+  (err, result) => {
+    if (err) throw err;
+      console.log(`Atualizado ${result.changedRows} row(s)`);
+  });
+  res.redirect('/listar');
+  });
+/* fecha rota Atualizar*/
+
+
+/* Abre rota Deletar */
+app.get('/deletar/:id', (req, res) => {
+
+  var id = req.params.id;
+
+  connection.query('DELETE FROM `usuario` Where id = ?',[id], function(err, result) {
+    console.log("Registro Deletado!!");
+    console.log(result);
+  });
+  res.redirect('/listar');
+});
+/* fecha rota Deletar*/ 
 
 app.listen(process.env.port || 3000);
 

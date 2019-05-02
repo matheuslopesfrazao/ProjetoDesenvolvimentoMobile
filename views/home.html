@@ -1,14 +1,161 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Minha Página</title>
-</head>
+	<meta charset="utf-8">
+	<title>Home - Site Motivacional</title>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<!-- Scripts importados -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+ </head>
 <body>
+	<header class="bg-dark"><!-- Abre cabeçalho -->
+		<div class="container"><!-- Abre container -->
+			<div class="row"><!-- Abre linha -->
+				<div class="col-12"><!-- Abre coluna -->
+					<nav class="navbar pt-4">
+						<span class="col-6"><a class="text-success" href="/">Home</a></span>
+						<ul class="col-6 nav justify-content-end">
+							<li class="list-item"><a class="nav-link text-light" href="/login">Login</a></li>
+							<li class="list-item"><a class="nav-link text-light" href="/listar">Listar</a></li>
+							<li class="list-item"><a class="nav-link text-light" href="/cadastrar">Cadastrar</a></li>
+							<li class="list-item"><a class="nav-link text-light" href="/editar">Atualizar</a></li>
+							<li class="list-item"><a class="nav-link text-light" href="/listar">Deletar</a></li>
+						</ul>
+					</nav>
+				</div><!-- Fecha coluna -->
+			</div> <!-- Fecha linha -->
+		</div>-<!-- Fecha container -->
+	</header><!-- Fecha cabeçalho -->
 
-  <h1>Seja Bem Vindo</h1>
-  <p>NodeJs é topzeira</p>
-  <!--<p><a href="/index2">teste</a></p>
-  <p><a href="/index3">teste2</a></p>
-  <p><a href="/login">Login</a></p>-->
+	<section class="intro container-fluid bg-secondary pb-5"><!-- Abre seção Introdução -->
+		<div class="container"><!-- Abre container -->
+			<div class="row"><!-- Abre linha -->
+				<div class="col-12 mt-3"><!-- Abre coluna -->
+					<h1 class="text-center text-white pt-5">Qual a vantagem de ter motivação?</h1>			
+				</div><!-- fecha coluna -->
+			</div><!-- fecha linha -->			
+			<div class="row">
+				<div class="col-12 mt-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+		</div><!-- fecha container -->
+	</section><!-- Fecha seção Introdução -->
+
+	<section class="cards pt-4 container-fluid mt-5 mb-5"><!-- Abre seção Cards -->
+		<div class="container"><!-- Abre container -->
+			<div class="row"><!-- Abre linha -->
+				<div class="col-4"><!-- Abre coluna -->
+					<img src="img/elon-musk.jpg">
+					<blockquote>
+						<p>"Eu acredito que é possível que pessoas comuns escolham ser extraordinárias"</p>
+						<cite>Elon Musk</cite>
+					</blockquote>
+				</div><!-- fecha coluna -->
+				<div class="col-4"><!-- Abre coluna -->
+					<img src="img/daniel-alves.jpg">
+					<blockquote>
+						<p>"Senta e chora, ou levanta e luta. Eu sempre escolho a segunda opção."</p>
+						<cite>Daniel Alves</cite>
+					</blockquote>
+				</div><!-- fecha coluna -->
+				<div class="col-4"><!-- Abre coluna -->
+					<img src="img/cristiano-ronaldo.jpg">
+					<blockquote>
+						<p>"Eu tô aqui"</p>
+						<cite>Cristiano Ronaldo</cite>
+					</blockquote>
+				</div><!-- fecha coluna -->
+			</div><!-- fecha linha -->
+		</div><!-- fecha container -->
+	</section><!-- fecha seção Cards --	>
+
+	<section><!-- Abre seção Carousel-->
+		<div class="bg-secondary">
+			<div class="container pt-5">
+				<div class="row">
+					<div class="col-12 text-center">
+						<!--Carousel Indicadores-->
+						<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+						  <ol class="carousel-indicators">
+						    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						  </ol>
+						  <!--Carousel imagens-->
+
+						  <div class="carousel-inner">
+						    <div class="carousel-item active">
+							  	<img src="img/frase-bill-gates.jpg" class="">
+							</div>
+
+						  <div class="carousel-item">
+							  <img src="img/frase-steve-jobs.jpg" class="">								
+							</div>
+
+						 	<div class="carousel-inner">
+						    	<div class="carousel-item">
+							  		<img src="img/frase-will-smith.jpg" class="">
+									</div>
+						  	<!--Carousel Botões-->
+						  	<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						    <span class="sr-only">Previous</span>
+						  	</a>
+						  	<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						    	<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						    	<span class="sr-only">Next</span>
+						  	</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div><!-- Fecha container-->
+		</div><!-- Fecha container-fluid-->
+	</section><!-- Fecha seção Carousel-->	
+
+	<section class="contato bg-light mt-5"><!-- Abre seção Contato-->
+		<div class="container pt-5 pb-5"><!-- Abre container -->
+			<div class="row justify-content-center"><!-- Abre linha -->
+				<div class="col-6"><!-- Abre coluna -->
+					<h3>Entre em contato conosco</h3>
+					<form class="pt-4">
+					  <div class="form-group">
+							<label>Nome</label>
+							<input type="email" class="form-control" name="" placeholder="Seu nome">
+						</div>
+						<div class="form-group">
+							<label>E-mail</label>
+							<input type="" class="form-control" name="" placeholder="Seu e-mail">
+						</div>
+						<div class="form-group">
+							<label>Telefone</label>
+							<input type=""class="form-control" name="" placeholder="Seu telefone">
+						</div>
+						<div class="form-group">
+							<label>Mensagem</label>
+							<textarea class="form-control" placeholder="Sua Mensagem"></textarea>
+						</div>
+						<input type="submit" name="Enviar" class="form-control btn- btn-success">
+					</form>
+				</div><!-- fecha coluna -->
+			</div><!-- fecha linha -->
+		</div><!-- fecha container -->
+	</section><!-- fecha seção Contato -->
+
+	<footer class="bg-dark"><!-- Abre Footer -->
+		<div class="container"><!-- Abre container -->
+			<div class="row"><!-- Abre linha -->
+				<div class="col-12 pt-3 pb-2"><!-- Abre coluna -->
+					<p class="text-white pl-1">Matheus 2019 - Alguns direitos reservados.</p>
+				</div><!-- fecha coluna -->
+			</div><!-- fecha linha -->
+		</div><!-- fecha container -->
+	</footer><!-- fecha Footer -->
+	
+	<!-- Abre JAVA SCRIPT -->
+	<script src="public/js/bootstrap.js"></script>
+	<!-- Fecha JAVA SCRIPT -->
 </body>
 </html>

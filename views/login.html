@@ -1,6 +1,8 @@
 <html>
   <head>
     <title>Login</title>
+	  <link rel="stylesheet" type="text/css" href="css/style.css">
+	  <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   </head>
   <body>
     <script>
@@ -8,12 +10,39 @@
     
     console.log(name);
     </script>
-    <h1>Logar!</h1>
-    <h2><%= user %></h2>
-    <form method="POST" action="/login">
-      <input type="TEXT" id="usuario" name="usuario" size="40"><br>
-      <input type="password" name="senha" id="senha" size="40"><br>
-      <input type="submit" id="submit" value="Submit">
-    </form>
+    <header class="bg-dark"><!-- Abre cabeçalho -->
+      <div class="container"><!-- Abre container -->
+        <div class="row"><!-- Abre linha -->
+          <div class="col-12"><!-- Abre coluna -->
+            <nav class="navbar pt-4">
+              <span class="col-6"><a class="text-light" href="/">Home</a></span>
+              <ul class="col-6 nav justify-content-end">
+                <li class="list-item"><a class="nav-link text-success" href="/login">Login</a></li>
+                <li class="list-item"><a class="nav-link text-light" href="/listar">Listar</a></li>
+                <li class="list-item"><a class="nav-link text-light" href="/cadastrar">Cadastrar</a></li>
+                <li class="list-item"><a class="nav-link text-light" href="/editar">Atualizar</a></li>
+                <li class="list-item"><a class="nav-link text-light" href="/deletar">Deletar</a></li>
+              </ul>
+            </nav>
+          </div><!-- Fecha coluna -->
+        </div> <!-- Fecha linha -->
+      </div>-<!-- Fecha container -->
+    </header><!-- Fecha cabeçalho -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <h1 class="mt-5">Login</h1>
+          <h3 class="pt-2"><%= user %></h2>
+          <form method="POST" action="/login">
+          <input class="form-control" type="TEXT" id="usuario" name="usuario" placeholder="Digite seu login" size="40"><br>
+          <input class="form-control" type="password" name="senha" id="senha" placeholder="Digite sua senha" size="40"><br>
+          <input type="submit" id="submit" value="Entrar">
+          </form>
+        </div>
+      </div>
+      
+    </div>
+    
   </body>
 </html>
